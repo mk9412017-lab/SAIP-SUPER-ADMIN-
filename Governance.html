@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#00363a",
+                    "error": "#ffb4ab",
+                    "on-secondary-fixed-variant": "#5e4200",
+                    "tertiary-fixed-dim": "#ffb3ae",
+                    "on-tertiary-container": "#bc1925",
+                    "tertiary": "#fff5f4",
+                    "outline": "#849495",
+                    "surface-container-highest": "#30353d",
+                    "on-secondary-fixed": "#271900",
+                    "surface-variant": "#30353d",
+                    "surface-container-high": "#252a32",
+                    "on-secondary-container": "#6b4b00",
+                    "surface-tint": "#00dbe7",
+                    "tertiary-container": "#ffd0cc",
+                    "surface-dim": "#0f141b",
+                    "surface-bright": "#343941",
+                    "primary": "#e1fdff",
+                    "on-secondary": "#412d00",
+                    "outline-variant": "#3a494b",
+                    "on-tertiary": "#68000b",
+                    "on-primary-fixed": "#002022",
+                    "on-error": "#690005",
+                    "on-tertiary-fixed-variant": "#930014",
+                    "inverse-on-surface": "#2c3138",
+                    "secondary": "#ffdb9d",
+                    "primary-fixed": "#74f5ff",
+                    "secondary-fixed": "#ffdea8",
+                    "on-tertiary-fixed": "#410004",
+                    "surface-container-low": "#171c23",
+                    "inverse-surface": "#dee2ec",
+                    "on-surface-variant": "#b9cacb",
+                    "inverse-primary": "#00696f",
+                    "secondary-container": "#feb700",
+                    "on-primary-fixed-variant": "#004f54",
+                    "tertiary-fixed": "#ffdad7",
+                    "surface": "#0f141b",
+                    "on-surface": "#dee2ec",
+                    "primary-fixed-dim": "#00dbe7",
+                    "background": "#0f141b",
+                    "primary-container": "#00f2ff",
+                    "surface-container-lowest": "#090f15",
+                    "surface-container": "#1b2027",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#006a71",
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#ffba20",
+                    "on-background": "#dee2ec"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "md": "24px",
+                    "sm": "16px",
+                    "margin-edge": "32px",
+                    "xs": "8px",
+                    "xl": "64px",
+                    "lg": "40px",
+                    "base": "4px",
+                    "gutter": "20px"
+            },
+            "fontFamily": {
+                    "data-metric": ["Space Grotesk"],
+                    "display-xl": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-mono": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "currency-egp": ["Inter"]
+            },
+            "fontSize": {
+                    "data-metric": ["24px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "currency-egp": ["14px", {"lineHeight": "1", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0C10;
+            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.02) 1px, transparent 0);
+            background-size: 50px 50px;
+        }
+        .glass-panel {
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow-cyan {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.1);
+        }
+        .pulse-red {
+            animation: pulse-red-animation 2s infinite;
+        }
+        @keyframes pulse-red-animation {
+            0% { box-shadow: 0 0 0 0 rgba(255, 180, 171, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 180, 171, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 180, 171, 0); }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-[#161B22]/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_15px_rgba(0,242,255,0.1)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-black text-cyan-400 tracking-tighter uppercase font-['Space_Grotesk']">AUTO-INTEL COMMAND</span>
+<div class="hidden md:flex gap-6">
+<a class="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-wider text-sm hover:text-cyan-300 hover:bg-white/5 transition-colors" href="#">Executive</a>
+<a class="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-wider text-sm hover:text-cyan-300 hover:bg-white/5 transition-colors" href="#">Branches</a>
+<a class="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-wider text-sm hover:text-cyan-300 hover:bg-white/5 transition-colors" href="#">Operations</a>
+<a class="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-wider text-sm hover:text-cyan-300 hover:bg-white/5 transition-colors" href="#">Financials</a>
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-['Space_Grotesk'] uppercase tracking-wider text-sm" href="#">Inventory</a>
+<a class="text-slate-400 font-medium font-['Space_Grotesk'] uppercase tracking-wider text-sm hover:text-cyan-300 hover:bg-white/5 transition-colors" href="#">Workforce</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-3 px-4 border-r border-white/10 mr-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-cyan-400 transition-colors">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-cyan-400 transition-colors">settings</span>
+<span class="material-symbols-outlined text-cyan-400 cursor-pointer pulse-red">notifications_active</span>
+</div>
+<button class="bg-primary-container/10 text-cyan-400 px-4 py-1 border border-cyan-400/30 text-xs font-bold font-['Space_Grotesk'] uppercase tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Branch Selector</button>
+<img alt="Chief Operations Officer Profile" class="w-8 h-8 rounded-full border border-cyan-400/50" data-alt="A professional portrait of a senior automotive executive in a clean-cut charcoal suit, standing in a brightly lit glass-walled office with a blurred background of a modern industrial manufacturing floor. High-key lighting, sharp focus, sophisticated corporate aesthetic with a professional and commanding mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5sk0bKanxjZvxbobfHkdddM1Z8c0Sdw8o9YdJnk0mqEcFQ-C0OaT1wi1zDpAfB-lEDjG2nfFt_xq6UmJbSFqVTdrMWxliJxCeNATfzNqZEO_kp46N5kpfpibslQvXJ93ktIwn5FD3v1XMTROFLW4aoo0erZfk4_tMpVRcwaqc4josnUY8HMiTMkNZUg4IEQ6Sc48cLv0fC90eQ40-3h8iJSSZWD8MLNNx8ubXhs5pZau82FKqa8vkjleegcH5Ai_87aEnAYEfxa8"/>
+</div>
+</nav>
+<!-- Left Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 z-40 bg-[#161B22]/80 backdrop-blur-2xl border-r border-white/5 w-64 pt-24">
+<div class="px-6 mb-8"><h2 class="text-cyan-400 font-black tracking-[0.2em] font-['Space_Grotesk'] text-2xl">SAIP</h2></div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-all font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">dashboard</span> Command Center
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-all font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">map</span> Performance
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-all font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">account_tree</span> Pipeline
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-all font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">payments</span> Financials
+            </a>
+<a class="flex items-center gap-3 bg-cyan-500/10 text-cyan-400 border-r-2 border-cyan-400 px-6 py-4 transition-all font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">inventory_2</span> Governance
+            </a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-all font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">engineering</span> Workforce
+            </a>
+</nav>
+<div class="px-6 py-4 border-t border-white/5">
+<button class="w-full bg-cyan-400 text-on-primary font-bold py-3 text-xs uppercase tracking-tighter hover:bg-cyan-300 transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span> New Work Order
+            </button>
+</div>
+<div class="mt-auto border-t border-white/5">
+<a class="flex items-center gap-3 text-slate-500 px-6 py-3 hover:text-slate-200 font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">help</span> Support
+            </a>
+<a class="flex items-center gap-3 text-error px-6 py-3 hover:bg-error/10 font-['Inter'] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined">logout</span> Logout
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-margin-edge pb-xl max-w-[1920px]">
+<!-- Header & Search -->
+<header class="flex justify-between items-end mb-lg">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-primary-fixed mb-2 uppercase tracking-tight">Inventory Governance Matrix</h1>
+<p class="text-slate-400 max-w-xl">Real-time cross-branch component availability, supply chain reliability metrics, and inter-service center logistics management.</p>
+</div>
+<div class="flex gap-4 items-center">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="bg-surface-container-high/50 border border-outline-variant/30 text-xs py-2 pl-10 pr-4 w-80 font-label-mono tracking-widest focus:border-cyan-400 focus:ring-0 transition-all text-on-surface" placeholder="SEARCH PART ID / VIN / SUPPLIER..." type="text"/>
+</div>
+<button class="bg-surface-container-highest border border-outline-variant/30 px-4 py-2 flex items-center gap-2 text-xs font-label-mono tracking-widest hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm">filter_list</span> FILTER
+                </button>
+</div>
+</header>
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Global Inventory Matrix (8 Columns) -->
+<section class="col-span-12 xl:col-span-8 glass-panel rounded-none p-0 overflow-hidden neon-glow-cyan border-white/10">
+<div class="p-4 border-b border-white/5 flex justify-between items-center bg-white/5">
+<span class="font-label-mono text-cyan-400 uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">grid_view</span> Cross-Branch Availability Matrix
+                    </span>
+<div class="flex gap-4 text-[10px] font-label-mono text-slate-500">
+<span class="flex items-center gap-1"><div class="w-2 h-2 bg-cyan-400"></div> OPTIMAL</span>
+<span class="flex items-center gap-1"><div class="w-2 h-2 bg-secondary"></div> REORDER</span>
+<span class="flex items-center gap-1"><div class="w-2 h-2 bg-error"></div> CRITICAL</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-highest/30 border-b border-white/10">
+<th class="p-4 font-label-mono text-xs text-slate-400 border-r border-white/5">PART SPECIFICATION</th>
+<th class="p-4 font-label-mono text-xs text-slate-400 border-r border-white/5">GLOBAL</th>
+<th class="p-4 font-label-mono text-xs text-slate-400 border-r border-white/5">CAIRO-NORTH</th>
+<th class="p-4 font-label-mono text-xs text-slate-400 border-r border-white/5">GIZA-MAIN</th>
+<th class="p-4 font-label-mono text-xs text-slate-400 border-r border-white/5">ALEX-HUB</th>
+<th class="p-4 font-label-mono text-xs text-slate-400">STATUS</th>
+</tr>
+</thead>
+<tbody class="text-xs font-body-md">
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="p-4 border-r border-white/5">
+<div class="font-bold text-on-surface">V8-CYL-HEAD-ASM</div>
+<div class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">ID: #4409-Z-11</div>
+</td>
+<td class="p-4 border-r border-white/5 font-data-metric text-on-surface">14</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">8</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">4</td>
+<td class="p-4 border-r border-white/5 text-secondary">2</td>
+<td class="p-4">
+<span class="bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded-none font-label-mono text-[10px]">STABLE</span>
+</td>
+</tr>
+<tr class="border-b border-white/5 bg-error/5 hover:bg-error/10 transition-colors">
+<td class="p-4 border-r border-white/5">
+<div class="font-bold text-on-surface">ECM-PRO-BOSCH</div>
+<div class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">ID: #B-992-TX</div>
+</td>
+<td class="p-4 border-r border-white/5 font-data-metric text-error">03</td>
+<td class="p-4 border-r border-white/5 text-error pulse-red bg-error/10">0</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">2</td>
+<td class="p-4 border-r border-white/5 text-secondary">1</td>
+<td class="p-4">
+<span class="bg-error/20 text-error px-2 py-0.5 rounded-none font-label-mono text-[10px] flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">warning</span> CRITICAL
+                                    </span>
+</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="p-4 border-r border-white/5">
+<div class="font-bold text-on-surface">HYDRAULIC-PUMP-V2</div>
+<div class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">ID: #HP-442-01</div>
+</td>
+<td class="p-4 border-r border-white/5 font-data-metric text-on-surface">32</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">12</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">10</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">10</td>
+<td class="p-4">
+<span class="bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded-none font-label-mono text-[10px]">OPTIMAL</span>
+</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="p-4 border-r border-white/5">
+<div class="font-bold text-on-surface">FUEL-INJECT-RAIL</div>
+<div class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">ID: #FR-88-ZZ</div>
+</td>
+<td class="p-4 border-r border-white/5 font-data-metric text-secondary">08</td>
+<td class="p-4 border-r border-white/5 text-secondary">2</td>
+<td class="p-4 border-r border-white/5 text-secondary">3</td>
+<td class="p-4 border-r border-white/5 text-secondary">3</td>
+<td class="p-4">
+<span class="bg-secondary/10 text-secondary px-2 py-0.5 rounded-none font-label-mono text-[10px]">REORDER</span>
+</td>
+</tr>
+<tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
+<td class="p-4 border-r border-white/5">
+<div class="font-bold text-on-surface">TRANS-GEAR-S1</div>
+<div class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">ID: #TG-S1-90</div>
+</td>
+<td class="p-4 border-r border-white/5 font-data-metric text-on-surface">22</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">6</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">8</td>
+<td class="p-4 border-r border-white/5 text-cyan-400">8</td>
+<td class="p-4">
+<span class="bg-cyan-500/10 text-cyan-400 px-2 py-0.5 rounded-none font-label-mono text-[10px]">OPTIMAL</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-white/5 flex justify-center">
+<button class="text-cyan-400 font-label-mono text-[10px] uppercase tracking-widest hover:underline">View All 2,408 Inventory Line Items</button>
+</div>
+</section>
+<!-- Inter-Branch Transfers Tool (4 Columns) -->
+<section class="col-span-12 xl:col-span-4 flex flex-col gap-gutter">
+<div class="glass-panel p-6 border-white/10 flex-1">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-cyan-400">local_shipping</span>
+<h3 class="font-label-mono text-sm uppercase tracking-widest text-on-surface">Logistics: Inter-Branch Transfer</h3>
+</div>
+<div class="space-y-4">
+<div class="space-y-1">
+<label class="text-[10px] font-label-mono text-slate-500 uppercase">Origin Branch</label>
+<select class="w-full bg-surface-container-high border-none text-xs font-label-mono text-on-surface focus:ring-1 focus:ring-cyan-400">
+<option>GIZA-MAIN (STK: 04)</option>
+<option>ALEX-HUB (STK: 02)</option>
+</select>
+</div>
+<div class="flex justify-center -my-2 relative z-10">
+<div class="bg-cyan-400 text-on-primary rounded-full p-1 border-4 border-surface shadow-lg">
+<span class="material-symbols-outlined text-sm">arrow_downward</span>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-[10px] font-label-mono text-slate-500 uppercase">Destination Branch</label>
+<select class="w-full bg-surface-container-high border-none text-xs font-label-mono text-on-surface focus:ring-1 focus:ring-cyan-400">
+<option>CAIRO-NORTH (STK: 00)</option>
+</select>
+</div>
+<div class="pt-2">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] font-label-mono text-slate-500 uppercase">Active Shipments</span>
+<span class="text-[10px] font-label-mono text-cyan-400">03 IN-TRANSIT</span>
+</div>
+<div class="space-y-2">
+<div class="bg-white/5 p-3 flex justify-between items-center border-l-2 border-cyan-400">
+<div class="text-[10px]">
+<div class="font-bold text-on-surface">TRK-990-2</div>
+<div class="text-slate-500">2x BRAKE-P-V3</div>
+</div>
+<div class="text-right">
+<div class="text-cyan-400 font-label-mono text-[9px]">ETA: 14:00</div>
+<div class="w-16 h-1 bg-white/10 mt-1"><div class="bg-cyan-400 h-full w-2/3"></div></div>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-bold py-3 text-xs uppercase tracking-widest hover:opacity-90 transition-all mt-4">
+                            INITIATE ASSET TRANSFER
+                        </button>
+</div>
+</div>
+<!-- Supplier Performance (Inside 4-col section) -->
+<div class="glass-panel p-6 border-white/10">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-cyan-400">query_stats</span>
+<h3 class="font-label-mono text-sm uppercase tracking-widest text-on-surface">Vendor Reliability Index</h3>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<div class="text-xs font-bold text-on-surface">BOSCH AUTOMOTIVE</div>
+<div class="text-[10px] text-slate-500 uppercase">Avg. Lead Time: 4.2 Days</div>
+</div>
+<div class="text-right">
+<div class="text-cyan-400 font-data-metric text-lg">98%</div>
+<div class="text-[9px] text-slate-500">FULFILLMENT</div>
+</div>
+</div>
+<div class="w-full h-1 bg-white/5"><div class="h-full bg-cyan-400 w-[98%]"></div></div>
+<div class="flex items-center justify-between">
+<div>
+<div class="text-xs font-bold text-on-surface">EL-MANSOUR PARTS</div>
+<div class="text-[10px] text-slate-500 uppercase">Avg. Lead Time: 1.8 Days</div>
+</div>
+<div class="text-right">
+<div class="text-secondary font-data-metric text-lg">82%</div>
+<div class="text-[9px] text-slate-500">FULFILLMENT</div>
+</div>
+</div>
+<div class="w-full h-1 bg-white/5"><div class="h-full bg-secondary w-[82%]"></div></div>
+<div class="flex items-center justify-between">
+<div>
+<div class="text-xs font-bold text-on-surface">TURBO-TEC IMPORT</div>
+<div class="text-[10px] text-slate-500 uppercase">Avg. Lead Time: 12.5 Days</div>
+</div>
+<div class="text-right">
+<div class="text-error font-data-metric text-lg">45%</div>
+<div class="text-[9px] text-slate-500">FULFILLMENT</div>
+</div>
+</div>
+<div class="w-full h-1 bg-white/5"><div class="h-full bg-error w-[45%]"></div></div>
+</div>
+</div>
+</section>
+<!-- Bottom Data Layer: Alerts & Quick Stats -->
+<section class="col-span-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-error">
+<div class="w-12 h-12 bg-error/10 flex items-center justify-center pulse-red">
+<span class="material-symbols-outlined text-error">dangerous</span>
+</div>
+<div>
+<div class="text-2xl font-data-metric text-on-surface">04</div>
+<div class="text-[10px] font-label-mono text-slate-500 uppercase tracking-widest">Stockouts Detected</div>
+</div>
+</div>
+<div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-secondary">
+<div class="w-12 h-12 bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary">assignment_late</span>
+</div>
+<div>
+<div class="text-2xl font-data-metric text-on-surface">12</div>
+<div class="text-[10px] font-label-mono text-slate-500 uppercase tracking-widest">Below Safety Threshold</div>
+</div>
+</div>
+<div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-cyan-400">
+<div class="w-12 h-12 bg-cyan-400/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-400">swap_horiz</span>
+</div>
+<div>
+<div class="text-2xl font-data-metric text-on-surface">28</div>
+<div class="text-[10px] font-label-mono text-slate-500 uppercase tracking-widest">Active Transfers</div>
+</div>
+</div>
+<div class="glass-panel p-4 flex items-center gap-4 border-l-4 border-on-surface-variant">
+<div class="w-12 h-12 bg-white/5 flex items-center justify-center">
+<span class="material-symbols-outlined text-slate-400">payments</span>
+</div>
+<div>
+<div class="text-2xl font-data-metric text-on-surface">1.2M</div>
+<div class="text-[10px] font-label-mono text-slate-500 uppercase tracking-widest">Inventory Value (EGP)</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Supplier Insight Card (Bento Grid Style) -->
+<div class="mt-gutter grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<div class="lg:col-span-2 glass-panel p-6 overflow-hidden relative border-white/10">
+<img alt="Warehouse Overview" class="absolute inset-0 w-full h-full object-cover opacity-20" data-alt="A cinematic, wide-angle photograph of a massive, hyper-modern automotive warehouse interior. The lighting is dominated by cool blue and cyan LED overheads, casting long shadows and creating a sleek industrial atmosphere. Thousands of organized automotive parts are stored on towering matte-black metal shelving units that vanish into a soft background blur. The scene feels organized, high-tech, and vast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6-tVFLY9RZe3Pc0VsPAhDc8sVUp-AdtTvHP9R98BtBEEXbGV6pX1bhf7VRyvnbk-zRwdoeOuhy0bwFPTohOgBSmErQZU1ivH0YVIXf1yuKWVq7CmcYuyzpJziaY9ZxhiN_uP6HNYfnr2vyux4-xR-FFUg_epfndIs91i9BhHbHryB627T_7bBRKe-8xEMkLd9CvK6oblYZiPzs5PGsiWsqUNeJxfs3RtIpBLaJIeyOCGhT3ONoI0yZe0rpjJkAfmWP9-zqpPwjeE"/>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div>
+<h4 class="text-primary-fixed text-lg font-bold font-['Inter'] mb-2">Regional Logistics Overview</h4>
+<p class="text-slate-300 text-sm max-w-md">Our Cairo distribution network currently maintains 94% uptime on critical component availability across the delta region.</p>
+</div>
+<div class="flex gap-8 mt-12">
+<div>
+<div class="text-xs font-label-mono text-slate-400 uppercase mb-1">Efficiency</div>
+<div class="text-3xl font-data-metric text-cyan-400">99.2%</div>
+</div>
+<div>
+<div class="text-xs font-label-mono text-slate-400 uppercase mb-1">Turnover Rate</div>
+<div class="text-3xl font-data-metric text-on-surface">14.5x</div>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-panel p-6 border-white/10 flex flex-col justify-center items-center text-center">
+<div class="mb-4 text-cyan-400">
+<span class="material-symbols-outlined text-5xl">verified</span>
+</div>
+<h4 class="font-headline-lg text-sm uppercase tracking-widest mb-2">Governance Compliant</h4>
+<p class="text-slate-400 text-xs mb-6">All current inventory levels meet the Enterprise ISO-9001 quality and safety standards for the Q4 cycle.</p>
+<button class="px-6 py-2 border border-cyan-400/50 text-cyan-400 text-[10px] font-label-mono uppercase tracking-widest hover:bg-cyan-400 hover:text-on-primary transition-all">Audit Logs</button>
+</div>
+</div>
+</main>
+</body></html>

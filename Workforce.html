@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary": "#00363a",
+                  "error": "#ffb4ab",
+                  "on-secondary-fixed-variant": "#5e4200",
+                  "tertiary-fixed-dim": "#ffb3ae",
+                  "on-tertiary-container": "#bc1925",
+                  "tertiary": "#fff5f4",
+                  "outline": "#849495",
+                  "surface-container-highest": "#30353d",
+                  "on-secondary-fixed": "#271900",
+                  "surface-variant": "#30353d",
+                  "surface-container-high": "#252a32",
+                  "on-secondary-container": "#6b4b00",
+                  "surface-tint": "#00dbe7",
+                  "tertiary-container": "#ffd0cc",
+                  "surface-dim": "#0f141b",
+                  "surface-bright": "#343941",
+                  "primary": "#e1fdff",
+                  "on-secondary": "#412d00",
+                  "outline-variant": "#3a494b",
+                  "on-tertiary": "#68000b",
+                  "on-primary-fixed": "#002022",
+                  "on-error": "#690005",
+                  "on-tertiary-fixed-variant": "#930014",
+                  "inverse-on-surface": "#2c3138",
+                  "secondary": "#ffdb9d",
+                  "primary-fixed": "#74f5ff",
+                  "secondary-fixed": "#ffdea8",
+                  "on-tertiary-fixed": "#410004",
+                  "surface-container-low": "#171c23",
+                  "inverse-surface": "#dee2ec",
+                  "on-surface-variant": "#b9cacb",
+                  "inverse-primary": "#00696f",
+                  "secondary-container": "#feb700",
+                  "on-primary-fixed-variant": "#004f54",
+                  "tertiary-fixed": "#ffdad7",
+                  "surface": "#0f141b",
+                  "on-surface": "#dee2ec",
+                  "primary-fixed-dim": "#00dbe7",
+                  "background": "#0f141b",
+                  "primary-container": "#00f2ff",
+                  "surface-container-lowest": "#090f15",
+                  "surface-container": "#1b2027",
+                  "on-error-container": "#ffdad6",
+                  "on-primary-container": "#006a71",
+                  "error-container": "#93000a",
+                  "secondary-fixed-dim": "#ffba20",
+                  "on-background": "#dee2ec"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.25rem",
+                  "lg": "0.5rem",
+                  "xl": "0.75rem",
+                  "full": "9999px"
+          },
+          "spacing": {
+                  "md": "24px",
+                  "sm": "16px",
+                  "margin-edge": "32px",
+                  "xs": "8px",
+                  "xl": "64px",
+                  "lg": "40px",
+                  "base": "4px",
+                  "gutter": "20px"
+          },
+          "fontFamily": {
+                  "data-metric": ["Space Grotesk"],
+                  "display-xl": ["Inter"],
+                  "headline-lg": ["Inter"],
+                  "label-mono": ["Space Grotesk"],
+                  "body-md": ["Inter"],
+                  "currency-egp": ["Inter"]
+          },
+          "fontSize": {
+                  "data-metric": ["24px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                  "display-xl": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                  "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                  "label-mono": ["12px", {"lineHeight": "1", "fontWeight": "600"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "currency-egp": ["14px", {"lineHeight": "1", "fontWeight": "600"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .glass-panel {
+      background: rgba(22, 27, 34, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(132, 148, 149, 0.1);
+    }
+    .neon-glow-primary {
+      box-shadow: 0 0 15px rgba(0, 242, 255, 0.15);
+    }
+    .glow-dot {
+      box-shadow: 0 0 8px currentColor;
+    }
+    .grid-bg {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-8 z-40 bg-[#161B22]/80 backdrop-blur-2xl w-64 border-r border-white/5">
+<div class="px-8 mb-10">
+<h1 class="text-primary-fixed-dim font-black tracking-widest text-xl uppercase font-label-mono">SAIP</h1>
+<p class="text-[10px] text-slate-500 font-bold tracking-tighter">V3.0.4-LIVE</p>
+</div>
+<nav class="flex-1 flex flex-col">
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-mono text-xs font-semibold uppercase">Command Center</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-label-mono text-xs font-semibold uppercase">Performance</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span class="font-label-mono text-xs font-semibold uppercase">Pipeline</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-mono text-xs font-semibold uppercase">Financials</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 px-6 py-4 hover:bg-white/5 hover:text-slate-200 transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-mono text-xs font-semibold uppercase">Governance</span>
+</a>
+<a class="flex items-center gap-3 bg-cyan-500/10 text-cyan-400 border-r-2 border-cyan-400 px-6 py-4 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">engineering</span>
+<span class="font-label-mono text-xs font-semibold uppercase">Workforce</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-label-mono font-bold py-3 rounded-sm text-xs tracking-widest uppercase mb-6 hover:brightness-110 active:scale-95 transition-all">
+        New Work Order
+      </button>
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-3 text-slate-500 py-2 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Support</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 py-2 hover:text-slate-200" href="#">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-[#161B22]/80 backdrop-blur-xl border-b border-white/10 ml-64 lg:w-[calc(100%-16rem)]">
+<div class="flex items-center gap-8">
+<div class="hidden lg:flex gap-6">
+<a class="font-label-mono uppercase tracking-wider text-sm text-slate-400 hover:text-primary-fixed-dim transition-colors" href="#">Executive</a>
+<a class="font-label-mono uppercase tracking-wider text-sm text-slate-400 hover:text-primary-fixed-dim transition-colors" href="#">Branches</a>
+<a class="font-label-mono uppercase tracking-wider text-sm text-slate-400 hover:text-primary-fixed-dim transition-colors" href="#">Operations</a>
+<a class="font-label-mono uppercase tracking-wider text-sm text-slate-400 hover:text-primary-fixed-dim transition-colors" href="#">Financials</a>
+<a class="font-label-mono uppercase tracking-wider text-sm text-slate-400 hover:text-primary-fixed-dim transition-colors" href="#">Inventory</a>
+<a class="font-label-mono uppercase tracking-wider text-sm text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1" href="#">Workforce</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex gap-4 px-4 border-r border-white/10">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary-fixed-dim cursor-pointer">language</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-primary-fixed-dim cursor-pointer">settings</span>
+<div class="relative">
+<span class="material-symbols-outlined text-slate-400 hover:text-primary-fixed-dim cursor-pointer">notifications_active</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-[10px] font-bold text-primary-fixed-dim uppercase tracking-tighter">COO Office</p>
+<p class="text-[9px] text-slate-500 font-medium">Ahmed Mansour</p>
+</div>
+<img alt="Chief Operations Officer Profile" class="w-10 h-10 rounded-full border-2 border-primary-fixed-dim/30 p-0.5" data-alt="A close-up professional headshot of a Middle Eastern male executive in a sleek, modern corporate setting with soft architectural lighting. He wears a charcoal-colored tailored suit and has a confident, neutral expression. The background is a slightly blurred, high-tech command center with subtle cyan glow indicators, reinforcing an executive industrial aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyWIY5dELovb5MBNxFH9jsSZKGmZpphPB3MRYrWJ210cAsgEVVZKwykXzvghRMKw_W6SDoiI_Ps_Hw8xGcQV_UOiTmzJNwKQuxVFQ9d4ClRYGQ5XGfIvBCpfl4mRLvd0DR8cSNLEkVWeUzzr1iFlU4zF0u0GXUdlKmRc1F0LJ3T8YgOZWyr0hoSWYL2rTZhQDGts7bcAzPrRY0NFKi6p7xghf0L07YflpTYIJG0UOeyA8SWziG5IF4udq-hwMbZKYBJJA_pdJYats"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 grid-bg min-h-screen">
+<!-- Hero Header -->
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="font-display-xl text-display-xl text-on-surface uppercase mb-1">Workforce Intelligence</h2>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 bg-primary-fixed-dim rounded-full animate-pulse glow-dot"></span>
+<p class="font-label-mono text-label-mono text-primary-fixed-dim tracking-widest uppercase">System Operational: 1,248 Field Technicians Active</p>
+</div>
+</div>
+<div class="flex gap-3">
+<div class="glass-panel px-6 py-3 flex flex-col justify-center">
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Avg Completion</span>
+<span class="font-data-metric text-data-metric text-primary-fixed-dim">94.2%</span>
+</div>
+<div class="glass-panel px-6 py-3 flex flex-col justify-center">
+<span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">System Efficiency</span>
+<span class="font-data-metric text-data-metric text-secondary-fixed-dim">+12.4%</span>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Technician Matrix -->
+<div class="col-span-12 lg:col-span-8 glass-panel rounded-lg overflow-hidden flex flex-col">
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">analytics</span>
+<h3 class="font-label-mono text-sm font-bold uppercase tracking-widest">Global Technician Matrix</h3>
+</div>
+<div class="flex gap-2">
+<button class="bg-white/5 hover:bg-white/10 px-3 py-1 rounded text-[10px] font-bold uppercase text-slate-300">Filter: Top Tier</button>
+<button class="bg-white/5 hover:bg-white/10 px-3 py-1 rounded text-[10px] font-bold uppercase text-slate-300">Export CSV</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5 border-b border-white/5">
+<th class="p-4 font-label-mono text-[10px] uppercase text-slate-500 tracking-wider">Operator ID</th>
+<th class="p-4 font-label-mono text-[10px] uppercase text-slate-500 tracking-wider">Branch</th>
+<th class="p-4 font-label-mono text-[10px] uppercase text-slate-500 tracking-wider text-center">Productivity</th>
+<th class="p-4 font-label-mono text-[10px] uppercase text-slate-500 tracking-wider text-center">Completion</th>
+<th class="p-4 font-label-mono text-[10px] uppercase text-slate-500 tracking-wider text-center">Rating</th>
+<th class="p-4 font-label-mono text-[10px] uppercase text-slate-500 tracking-wider">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-label-mono text-xs text-primary-fixed-dim font-bold">#TC-8802-AM</td>
+<td class="p-4 text-xs text-slate-300 uppercase">Cairo East</td>
+<td class="p-4">
+<div class="flex flex-col gap-1 items-center">
+<span class="text-xs font-data-metric text-on-surface">98.5%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim" style="width: 98.5%"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center text-xs font-data-metric">102/mo</td>
+<td class="p-4">
+<div class="flex items-center justify-center gap-1 text-secondary-fixed-dim">
+<span class="text-xs font-data-metric">4.92</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-primary-fixed-dim/10 text-primary-fixed-dim text-[9px] font-bold rounded uppercase tracking-tighter">Elite Rank</span>
+</td>
+</tr>
+<tr class="bg-white/2 hover:bg-white/5 transition-colors">
+<td class="p-4 font-label-mono text-xs text-primary-fixed-dim font-bold">#TC-9144-KL</td>
+<td class="p-4 text-xs text-slate-300 uppercase">Alexandria West</td>
+<td class="p-4">
+<div class="flex flex-col gap-1 items-center">
+<span class="text-xs font-data-metric text-on-surface">92.1%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim" style="width: 92.1%"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center text-xs font-data-metric">89/mo</td>
+<td class="p-4">
+<div class="flex items-center justify-center gap-1 text-secondary-fixed-dim">
+<span class="text-xs font-data-metric">4.85</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-white/10 text-slate-400 text-[9px] font-bold rounded uppercase tracking-tighter">Active</span>
+</td>
+</tr>
+<tr class="hover:bg-white/5 transition-colors">
+<td class="p-4 font-label-mono text-xs text-primary-fixed-dim font-bold">#TC-0043-ZZ</td>
+<td class="p-4 text-xs text-slate-300 uppercase">Giza South</td>
+<td class="p-4">
+<div class="flex flex-col gap-1 items-center">
+<span class="text-xs font-data-metric text-on-surface">76.4%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 76.4%"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center text-xs font-data-metric">65/mo</td>
+<td class="p-4">
+<div class="flex items-center justify-center gap-1 text-secondary-fixed-dim">
+<span class="text-xs font-data-metric">3.20</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-error/10 text-error text-[9px] font-bold rounded uppercase tracking-tighter">Under Review</span>
+</td>
+</tr>
+<tr class="bg-white/2 hover:bg-white/5 transition-colors">
+<td class="p-4 font-label-mono text-xs text-primary-fixed-dim font-bold">#TC-7712-RE</td>
+<td class="p-4 text-xs text-slate-300 uppercase">Luxor Central</td>
+<td class="p-4">
+<div class="flex flex-col gap-1 items-center">
+<span class="text-xs font-data-metric text-on-surface">94.8%</span>
+<div class="w-24 h-1 bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed-dim" style="width: 94.8%"></div>
+</div>
+</div>
+</td>
+<td class="p-4 text-center text-xs font-data-metric">94/mo</td>
+<td class="p-4">
+<div class="flex items-center justify-center gap-1 text-secondary-fixed-dim">
+<span class="text-xs font-data-metric">4.71</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-0.5 bg-white/10 text-slate-400 text-[9px] font-bold rounded uppercase tracking-tighter">Active</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Burnout Prediction AI -->
+<div class="col-span-12 lg:col-span-4 glass-panel rounded-lg p-6 flex flex-col neon-glow-primary">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-error">psychology</span>
+<h3 class="font-label-mono text-sm font-bold uppercase tracking-widest text-error">Burnout Risk Prediction</h3>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center relative mb-6">
+<svg class="w-48 h-48 transform -rotate-90">
+<circle class="text-white/5" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-error" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="138.23" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-data-metric font-black text-on-surface">24%</span>
+<span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">High Risk Group</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-white/5 p-4 rounded border-l-4 border-error">
+<div class="flex justify-between items-center mb-1">
+<p class="text-[10px] font-bold text-slate-300 uppercase tracking-widest">Critical Alert: Fatigue Peaks</p>
+<span class="text-[9px] text-error font-bold uppercase">Immediate Action</span>
+</div>
+<p class="text-xs text-slate-400 leading-relaxed">System detects 14 technicians in Cairo East exceeding 12-hour shifts for 3 consecutive days. Recommended reallocation of 8 work orders to Giza North.</p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col">
+<span class="text-[9px] text-slate-500 font-bold uppercase mb-1">Workload Balance</span>
+<span class="text-sm font-data-metric text-on-surface">Fair (64/100)</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[9px] text-slate-500 font-bold uppercase mb-1">Recovery Rate</span>
+<span class="text-sm font-data-metric text-on-surface">+14.2%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Best Technician Leaderboard -->
+<div class="col-span-12 lg:col-span-5 glass-panel rounded-lg p-6">
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary-fixed-dim">military_tech</span>
+<h3 class="font-label-mono text-sm font-bold uppercase tracking-widest">Leaderboard: July 2024</h3>
+</div>
+<span class="material-symbols-outlined text-slate-600 hover:text-white cursor-pointer">more_vert</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 relative">
+<div class="relative">
+<img alt="Top Technician Profile" class="w-14 h-14 rounded-full border-2 border-secondary-fixed-dim" data-alt="A cinematic, medium-shot portrait of an automotive technician in a sleek, high-tech industrial uniform. He is standing in a clean, brightly lit modern workshop with soft blue and white accent lights. He has a determined and professional look, with the workshop tools in the background blurred to focus on his face. The style is ultra-modern and high-contrast, fitting an executive industrial narrative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwN4y3PWsjsGs-fcuZRMFO00d-8wJ7rCWJnGdUNlNmUjfrRSgh1_4hzM4RcLz1-snpXLcjd19V8PksZ4TLah9qzzuYHBS-VMx6tbF8tXXC0EnDqQwFmnT_Mrz6PPUawFQP0F_hLQNRm62b6WHDWeDOS7sUcf6gUKDP7RP62T95Buu6suJK0ceW9Asl2f-3XttVkbLMd-48Z4OrD4LO6O3Z-B91K32SAM_yV13M3MC8zDA-qPTsDhIy6AwvcbZEEG3hA0XhvTsO7hA"/>
+<span class="absolute -top-2 -right-2 bg-secondary-fixed-dim text-on-secondary font-black text-xs w-6 h-6 flex items-center justify-center rounded-full">1</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-end mb-1">
+<h4 class="text-sm font-bold text-on-surface">Ziad Ibrahim</h4>
+<span class="text-sm font-data-metric text-secondary-fixed-dim">12,450 XP</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim" style="width: 100%"></div>
+</div>
+<p class="text-[9px] text-slate-500 font-bold uppercase mt-1 tracking-widest">Master Diagnostic Specialist • 99% Satisfaction</p>
+</div>
+</div>
+<div class="flex items-center gap-4 relative">
+<div class="relative">
+<img alt="Second Technician Profile" class="w-14 h-14 rounded-full border-2 border-slate-400" data-alt="A focused headshot of a mature technician with sharp features, wearing a dark grey modern technical jumpsuit. The lighting is dramatic, highlighting the contours of his face against a backdrop of glowing digital car diagnostics panels. The atmosphere is professional and authoritative, utilizing a cool-toned palette of charcoal and cyan." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKo2TjOkEMmpftuJTDX-nXICPeb7Cl0Z1Vr6SBomoBni7Uq_4KBqpSDU5UTymfSXV9quxTRqot-CldakFnsw-U8fxNDcfrzJDdQQVMlFb-R41nswdYRnpiuv2i-fIiLch8F3OVnjenqpJchAVWbPuX5CzyE_SFxrtB_YYEf0J8Rv3VgAQ0Yayh2HXrFXsbWiOir23kA8OPTVlkT5PasrdNp_68wveEsLui1J2DN0TwTdj71x51C5_gorguB5w5odO-Yiz3r0xK9dE"/>
+<span class="absolute -top-2 -right-2 bg-slate-400 text-on-surface font-black text-xs w-6 h-6 flex items-center justify-center rounded-full text-black">2</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-end mb-1">
+<h4 class="text-sm font-bold text-on-surface">Kareem Helmy</h4>
+<span class="text-sm font-data-metric text-slate-300">11,120 XP</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-slate-400" style="width: 85%"></div>
+</div>
+<p class="text-[9px] text-slate-500 font-bold uppercase mt-1 tracking-widest">EV Propulsion Lead • 97% Satisfaction</p>
+</div>
+</div>
+<div class="flex items-center gap-4 relative">
+<div class="relative">
+<img alt="Third Technician Profile" class="w-14 h-14 rounded-full border-2 border-orange-400" data-alt="A young, enthusiastic technician smiling at the camera, wearing a high-tech grey polo shirt with a glowing emblem. He is in a clean, modern garage environment filled with digital screens showing engine telemetry. The lighting is warm yet tech-oriented, with bright white overheads and orange status indicator glows in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRi-aA8TX61-yr7h53gQnThe3Lle5zwV0z7IAeZ291pJB77bOqPEKyNevNLdzBr8OAyKkwm2xmuve5viLcgoqkaOBDHjk0f49VXblFcEk72TmjqpVzTorQ77-6BcCMl0R_AjBMNs3fmq7Er0bYlxA3P_UZvzTAJhJ--PUuTSj6lXnR-ysk8S5fWO1pXHiJAHQVoY4Z6u0bmRMpeDg4Rt3Q9pp7Qs4nfRgzYSf37moZ-Ueq9AbL4sO5wNcRhw1ULDf_xbPRQFVVDA0"/>
+<span class="absolute -top-2 -right-2 bg-orange-800 text-orange-200 font-black text-xs w-6 h-6 flex items-center justify-center rounded-full">3</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-end mb-1">
+<h4 class="text-sm font-bold text-on-surface">Omar Fouad</h4>
+<span class="text-sm font-data-metric text-slate-300">10,890 XP</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-orange-600" style="width: 78%"></div>
+</div>
+<p class="text-[9px] text-slate-500 font-bold uppercase mt-1 tracking-widest">Rapid Response Specialist • 95% Satisfaction</p>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Distribution Insights (Asymmetric Layout) -->
+<div class="col-span-12 lg:col-span-7 grid grid-cols-2 gap-gutter">
+<div class="glass-panel rounded-lg p-6 col-span-2">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-fixed-dim">query_stats</span>
+<h3 class="font-label-mono text-sm font-bold uppercase tracking-widest">Workforce Distribution Efficiency</h3>
+</div>
+<span class="text-[10px] text-primary-fixed-dim font-bold font-label-mono uppercase tracking-widest">Optimal Range: 85-92%</span>
+</div>
+<div class="h-48 flex items-end gap-2 mb-4">
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 65%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">65%</div>
+</div>
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 88%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">88%</div>
+</div>
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 42%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">42%</div>
+</div>
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 94%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">94%</div>
+</div>
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 71%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">71%</div>
+</div>
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 55%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">55%</div>
+</div>
+<div class="flex-1 bg-primary-fixed-dim/20 relative group">
+<div class="absolute bottom-0 w-full bg-primary-fixed-dim" style="height: 82%"></div>
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-white text-black text-[9px] p-1 rounded transition-opacity">82%</div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] font-label-mono text-slate-500 font-bold uppercase tracking-widest px-2">
+<span>Cairo</span>
+<span>Alex</span>
+<span>Giza</span>
+<span>Mansoura</span>
+<span>Suez</span>
+<span>Aswan</span>
+<span>Luxor</span>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary-fixed-dim mb-4">electric_car</span>
+<div>
+<h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">EV Cert. Growth</h4>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-data-metric text-on-surface">+340</span>
+<span class="text-xs text-primary-fixed-dim font-bold mb-1">Active Certs</span>
+</div>
+</div>
+</div>
+<div class="glass-panel rounded-lg p-6 flex flex-col justify-between border-primary-fixed-dim/30">
+<span class="material-symbols-outlined text-secondary-fixed-dim mb-4">school</span>
+<div>
+<h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">AI Training Modules</h4>
+<div class="flex items-end gap-2">
+<span class="text-2xl font-data-metric text-on-surface">12</span>
+<span class="text-xs text-secondary-fixed-dim font-bold mb-1">Pending Sync</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-16 h-16 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-2xl z-50 hover:scale-110 active:scale-95 transition-all group overflow-hidden">
+<div class="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-3xl">add</span>
+<span class="absolute -left-32 bg-[#161B22] text-primary-fixed-dim text-[10px] font-bold uppercase px-4 py-2 rounded-full border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Deploy Field Unit</span>
+</button>
+</body></html>
