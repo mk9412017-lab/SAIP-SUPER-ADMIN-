@@ -156,7 +156,7 @@
 <label class="font-label-mono text-xs text-primary-container uppercase tracking-widest ml-1">HQ-ID</label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary-container transition-colors">badge</span>
-<input class="w-full bg-white/5 border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-lg pl-12 pr-4 py-4 text-on-surface font-label-mono placeholder:text-outline/40" placeholder="ENTER TERMINAL ID" type="text"/>
+<input id="username" class="w-full bg-white/5 border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-lg pl-12 pr-4 py-4 text-on-surface font-label-mono placeholder:text-outline/40" placeholder="ENTER TERMINAL ID" type="text"/>
 </div>
 </div>
 <!-- Access Key Field -->
@@ -164,7 +164,7 @@
 <label class="font-label-mono text-xs text-primary-container uppercase tracking-widest ml-1">Access Key</label>
 <div class="relative group">
 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary-container transition-colors">vpn_key</span>
-<input class="w-full bg-white/5 border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-lg pl-12 pr-4 py-4 text-on-surface font-label-mono placeholder:text-outline/40" placeholder="••••••••••••" type="password"/>
+<input id="password" class="w-full bg-white/5 border-outline-variant focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all rounded-lg pl-12 pr-4 py-4 text-on-surface font-label-mono placeholder:text-outline/40" placeholder="••••••••••••" type="password"/>
 </div>
 </div>
 <!-- Biometric Toggle -->
@@ -179,9 +179,10 @@
 </label>
 </div>
 <!-- Action Button -->
-<button class="w-full bg-primary-container text-on-primary py-4 rounded-lg font-label-mono text-sm font-bold uppercase tracking-widest hover:bg-primary-fixed transition-all flex items-center justify-center gap-3 group active:scale-95 duration-150" type="submit">
-                    INITIALIZE COMMAND
-                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">terminal</span>
+<button onclick="login()" class="w-full bg-primary-container text-on-primary py-4 rounded-lg font-label-mono text-sm font-bold uppercase tracking-widest hover:bg-primary-fixed transition-all flex items-center justify-center gap-3 group active:scale-95 duration-150" type="button">
+ <p id="error" class="text-red-400 text-center font-label-mono text-xs"></p>
+        INITIALIZE COMMAND
+<span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">terminal</span>
 </button>
 </form>
 <!-- Forgot Link -->
@@ -212,4 +213,17 @@
 </main>
 <!-- Bottom Decorative Circuit -->
 <div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-container/20 to-transparent"></div>
+       <script>
+function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === "admin" && pass === "1234") {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "command center.html";
+    } else {
+        document.getElementById("error").innerText = "Invalid HQ-ID or Access Key";
+    }
+}
+</script> 
 </body></html>
